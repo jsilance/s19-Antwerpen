@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:16:28 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/02/28 17:36:59 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:16:46 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	long long	nb;
 
 	nb = nbr;
-	if (ft_chek_char(base))
+	if (!base || !*base || ft_chek_char(base))
 		return ;
 	if (nb < 0)
 	{
