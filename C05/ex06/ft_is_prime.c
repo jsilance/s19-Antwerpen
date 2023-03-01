@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 03:08:36 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/02/28 20:22:40 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/03/01 11:23:06 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/01 11:45:24 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (dest && dest[i])
-		i++;
-	while (src && *src && nb-- > 0)
-		dest[i++] = *src++;
-	return (dest);
+	i = 3;
+	if (nb == 2)
+		return (1);
+	if (nb < 2 || nb % 2 == 0)
+		return (0);
+	while (i < nb / 2)
+	{
+		if (nb % i == 0)
+			return (0);
+		i += 2;
+	}
+	return (1);
 }

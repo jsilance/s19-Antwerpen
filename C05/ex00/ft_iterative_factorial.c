@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 03:08:36 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/02/28 20:22:40 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/02/28 23:31:42 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/01 00:34:09 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_iterative_factorial(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (dest && dest[i])
-		i++;
-	while (src && *src && nb-- > 0)
-		dest[i++] = *src++;
-	return (dest);
+	i = nb;
+	if (nb <= 0)
+		return (0);
+	while (--nb > 0)
+		i *= nb;
+	return (i);
 }

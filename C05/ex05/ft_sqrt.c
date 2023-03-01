@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 03:08:36 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/02/28 20:22:40 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/03/01 01:26:13 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/01 01:56:31 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int ft_sqrt(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (dest && dest[i])
+	i = nb % 10;
+	if (i == 2 || i == 3 ||	i == 7 || i == 8 || nb < 1)
+		return (0);
+	i = 1;
+	while (i <= nb / 2 || nb == 1)
+	{
+		if (i * i == nb)
+			return (i);
 		i++;
-	while (src && *src && nb-- > 0)
-		dest[i++] = *src++;
-	return (dest);
+	}
+	return (0);
 }

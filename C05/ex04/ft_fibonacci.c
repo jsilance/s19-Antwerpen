@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 03:08:36 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/02/28 20:22:40 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/03/01 01:03:10 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/01 01:24:42 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_fibonacci(int index)
 {
-	int	i;
-
-	i = 0;
-	while (dest && dest[i])
-		i++;
-	while (src && *src && nb-- > 0)
-		dest[i++] = *src++;
-	return (dest);
+	if (index < 0)
+		return (-1);
+	if (index < 2)
+		return (index);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
