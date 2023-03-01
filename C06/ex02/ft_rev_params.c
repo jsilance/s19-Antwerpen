@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 16:25:58 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/01 19:38:52 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/01 19:35:20 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/01 19:41:28 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,11 @@ int	ft_strlen(char *str)
 
 int	main(int argc, char **argv)
 {
-	int	i;
-
-	i = 1;
-	while (i <= argc)
+	while (1 <= --argc)
 	{
-		write(1, argv[i], ft_strlen(argv[i]));
-		if (i < argc)
+		write(1, argv[argc], ft_strlen(argv[argc]));
+		if (1 < argc)
 			write(1, "\n", 1);
-		i++;
 	}
 	return (0);
 }
