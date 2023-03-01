@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:23:06 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/01 11:45:24 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/01 16:12:37 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
