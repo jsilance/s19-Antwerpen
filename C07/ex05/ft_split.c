@@ -3,14 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 14:26:42 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/02 19:41:15 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/02 23:13:22 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	if (!to_find || !*to_find)
+		return (str);
+	while (str && str[i])
+	{
+		j = 0;
+		while (str[i + j] && str[i + j] == to_find[j])
+			if (!to_find[++j])
+				return (&str[i]);
+		i++;
+	}
+	return ((void *)0);
+}
 
 int	ft_strchr(char *str, char c)
 {
@@ -31,11 +50,8 @@ char	*ft_strndup(char *str, int nb)
 	char	*newstr;
 	int		i;
 
-	i = 0;
-	while (str && str[i])
-		i++;
 	if (str)
-		newstr = malloc(sizeof(char) * (i + 1));
+		newstr = malloc(sizeof(char) * (nb + 1));
 	if (!newstr)
 		return ((void *)0);
 	i = -1;
@@ -56,7 +72,7 @@ int	ft_word_counter(char *str, char *charset)
 			str++;
 		else
 		{
-			while (ft_strchr(charset, *str) == -1)
+			while (*str && ft_strchr(charset, *str) == -1)
 				str++;
 			word++;
 		}
@@ -85,13 +101,20 @@ char	*ft_start_word(char *str, char *charset)
 #include <stdio.h>
 char	**ft_split(char *str, char *charset)
 {
-	char	*ptr;
+	char	**ptr;
+	int		i;
 
-	ptr = malloc(sizeof(char*) * (ft_word_counter(str, charset) + 1));
+	i = 0;
+	ptr = (char **)malloc(sizeof(char*) * (ft_word_counter(str, charset) + 1));
 	if (!ptr)
 		return ((void *)0);
-	printf("[%d]\n", ft_word_counter(str, charset));
-	return ((void *)0);
+	while (str && *str)
+	{
+		ptr[i] = ft_start_word(str, charset);
+		str = ft_strstr(str, ptr[i++]);
+		ptr[i] = (void *)0;
+	}
+	return (ptr);
 }
 
 

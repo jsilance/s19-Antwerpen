@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 03:23:11 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/01 19:24:38 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/02 22:01:41 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strstr(char *str, char *to_find)
 	{
 		j = 0;
 		while (str[i + j] && str[i + j] == to_find[j])
-			if (!to_find[j++])
+			if (!to_find[++j])
 				return (&str[i]);
 		i++;
 	}
