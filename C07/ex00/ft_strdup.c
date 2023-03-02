@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 07:19:08 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/02 07:29:21 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/02 11:18:24 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ char	*ft_strdup(char *str)
 
 	if (str)
 		newstr = malloc(sizeof(char) * ft_strlen(str) + 1);
+	if (!newstr)
+		return ((void *)0);
 	newstr = ft_strcpy(newstr, str);
 	return (newstr);
 }

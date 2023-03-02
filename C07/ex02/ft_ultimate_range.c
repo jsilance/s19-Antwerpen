@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_program_name.c                            :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/01 12:21:17 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/02 14:08:42 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/02 09:37:42 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/02 11:19:31 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_strlen(char *str)
+int	ft_lengh_calc(int min, int max)
 {
 	int	i;
 
 	i = 0;
-	while (str && *str++)
+	while (min++ < max)
 		i++;
 	return (i);
 }
 
-int	main(int argc, char **argv)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	write(1, argv[0], ft_strlen(argv[0]));
+	int	i;
+	int	ret;
+	int	*tab;
+
+	ret = -1;
+	*range = (void *)0;
+	if (max <= min)
+		return (ret);
+	i = 0;
+	ret = ft_lengh_calc(min, max);
+	tab = (int *)malloc(sizeof(int) * ret);
+	if (!tab)
+		return ((void *)0);
+	while (min < max)
+		tab[i++] = min++;
+	*range = tab;
+	return (ret);
 }

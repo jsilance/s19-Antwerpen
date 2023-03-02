@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 07:30:52 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/02 08:55:50 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/02 11:19:04 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	*ft_range(int min, int max)
 		return ((void *)0);
 	i = 0;
 	tab = malloc(sizeof(int) * ft_lengh_calc(min, max));
+	if (!tab)
+		return ((void *)0);
 	while (min < max)
 		tab[i++] = min++;
 	return (tab);
