@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 07:26:53 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/02 07:21:08 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/03/02 07:30:52 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/02 08:55:50 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, char *src)
+#include <stdlib.h>
+
+int	ft_lengh_calc(int min, int max)
 {
 	int	i;
 
 	i = 0;
-	if (src)
-	{
-		while (src && dest && src[i])
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (dest);
+	while (min++ < max)
+		i++;
+	return (i);
+}
+
+int	*ft_range(int min, int max)
+{
+	int	*tab;
+	int	i;
+
+	if (max <= min)
+		return ((void *)0);
+	i = 0;
+	tab = malloc(sizeof(int) * ft_lengh_calc(min, max));
+	while (min < max)
+		tab[i++] = min++;
+	return (tab);
 }

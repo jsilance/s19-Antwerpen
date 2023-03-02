@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 07:26:53 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/02 07:21:08 by juliensilan      ###   ########.fr       */
+/*   Created: 2023/03/02 07:19:08 by juliensilan       #+#    #+#             */
+/*   Updated: 2023/03/02 07:29:21 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -25,4 +27,24 @@ char	*ft_strcpy(char *dest, char *src)
 		dest[i] = '\0';
 	}
 	return (dest);
+}
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && *str++)
+		i++;
+	return (0);
+}
+
+char	*ft_strdup(char *str)
+{
+	char	*newstr;
+
+	if (str)
+		newstr = malloc(sizeof(char) * ft_strlen(str) + 1);
+	newstr = ft_strcpy(newstr, str);
+	return (newstr);
 }
