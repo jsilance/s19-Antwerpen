@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_params.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:42:45 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/01 23:32:56 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/02 16:45:41 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void	ft_swap(char **a, char **b)
 
 int	ft_strcmp(char *s1, char *s2)
 {
+	if (!s1 && !s2)
+		return (0);
 	if (!s1)
-		return (1);
-	if (!s2)
 		return (-1);
+	if (!s2)
+		return (1);
 	while (s1 && s2)
 	{
 		if (!*s1 || !*s2 || (*(s1) != *(s2)))
@@ -56,7 +58,7 @@ void	ft_sort_char_tab(char **tab, int size)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = 1;
 	while (i < size)
 	{
 		j = i + 1;

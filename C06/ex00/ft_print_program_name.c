@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:21:17 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/02 14:08:42 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/02 16:29:02 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	ft_strlen(char *str)
 
 int	main(int argc, char **argv)
 {
-	write(1, argv[0], ft_strlen(argv[0]));
+	if (argc > 0)
+		write(1, argv[0], ft_strlen(argv[0]));
 }
