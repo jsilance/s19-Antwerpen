@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:08:33 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/02 14:25:08 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/03 07:50:10 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,28 +97,29 @@ int	ft_atoi_base(char *str, char *base)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	long long	nb;
+	long long	nb[3];
 	char		*ptr;
-	int			i;
 
 	if (ft_chek_char(base_to) || ft_chek_char(base_from) || !nbr || !*nbr)
 		return (malloc(0));
-	i = 0;
-	nb = ft_atoi_base(nbr, base_from);
+	nb[1] = 0;
+	nb[0] = ft_atoi_base(nbr, base_from);
 	ptr = malloc(sizeof(char) * 33);
-	if (nb < 0)
+	if (nb[0] < 0)
 	{
-		ptr[i++] = '-';
-		nb = -nb;
+		nb[2] = 1;
+		nb[0] = -nb[0];
 	}
-	else if (nb == 0)
+	else if (nb[0] == 0)
 		ptr[0] = base_to[0];
-	while (nb)
+	while (nb[0])
 	{
-		ptr[i++] = base_to[nb % ft_strlen(base_to)];
-		nb /= ft_strlen(base_to);
+		ptr[nb[1]++] = base_to[nb[0] % ft_strlen(base_to)];
+		nb[0] /= ft_strlen(base_to);
 	}
-	ptr[i] = '\0';
+	if (nb[2])
+		ptr[nb[1]++] = '-';
+	ptr[nb[1]] = '\0';
 	ft_strchr((void *)0, 0, &ptr, 1);
 	return (ptr);
 }

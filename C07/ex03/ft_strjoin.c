@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 10:41:35 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/02 13:15:31 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/03 07:53:48 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,16 @@ char	*ft_strjoin(int size, char **str, char *sep)
 		ptr[i[2]] = '\0';
 	}
 	return (ptr);
+}
+
+#include <stdio.h>
+
+char *ft_strjoin(int size, char **strs, char *sep);
+
+int	main(int argc, char **argv)
+{
+	char *str[5];
+	str[0] = "./ex03/output";
+	printf("./ex03/output___said___this___is___a___success :\n");
+	printf("%s\n",  ft_strjoin(argc, argv, "___"));
 }
