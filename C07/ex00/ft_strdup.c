@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 07:19:08 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/02 17:30:49 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/03 09:44:44 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ char	*ft_strdup(char *str)
 	i = 0;
 	while (str && str[i])
 		i++;
-	if (str)
-		newstr = malloc(sizeof(char) * (i + 1));
+	newstr = malloc(sizeof(char) * (i + 1));
 	if (!newstr)
 		return ((void *)0);
 	i = -1;

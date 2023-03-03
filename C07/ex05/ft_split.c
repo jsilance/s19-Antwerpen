@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split2.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 06:29:58 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/03 07:33:40 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/03 09:45:40 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	**ft_split(char *str, char *charset)
 
 	i = 0;
 	word_count = ft_word_counter(str, charset);
-	ptr = (char **)malloc(sizeof(char*) * (word_count + 1));
+	ptr = (char **)malloc (sizeof(char *) * (word_count + 1));
 	if (!ptr)
 		return ((void *)0);
 	while (str && *str && i < word_count)
