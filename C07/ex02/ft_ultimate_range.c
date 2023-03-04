@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:37:42 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/03 09:40:25 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/04 11:34:06 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	ft_ultimate_range(int **range, int min, int max)
 	int	ret;
 	int	*tab;
 
-	ret = -1;
+	ret = 0;
 	*range = (void *)0;
 	if (max <= min)
-		return (ret * (max != min));
+		return (ret);
 	i = 0;
 	ret = ft_lengh_calc(min, max);
 	tab = (int *)malloc(sizeof(int) * ret);

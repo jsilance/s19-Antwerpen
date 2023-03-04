@@ -6,7 +6,7 @@
 /*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:08:33 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/03 07:50:10 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/04 12:18:19 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,14 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		return (malloc(0));
 	nb[1] = 0;
 	nb[0] = ft_atoi_base(nbr, base_from);
+	nb[2] = 0;
 	ptr = malloc(sizeof(char) * 33);
 	if (nb[0] < 0)
-	{
 		nb[2] = 1;
+	if (nb[0] < 0)
 		nb[0] = -nb[0];
-	}
 	else if (nb[0] == 0)
-		ptr[0] = base_to[0];
+		ptr[nb[1]++] = base_to[0];
 	while (nb[0])
 	{
 		ptr[nb[1]++] = base_to[nb[0] % ft_strlen(base_to)];
