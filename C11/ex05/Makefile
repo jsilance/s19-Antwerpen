@@ -6,31 +6,23 @@
 #    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/05 20:22:15 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/05 22:26:44 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-OBJECTS = src/ft_putchar.c, src/ft_swap.c, src/ft_putstr.c, src/ft_strlen.c, src/ft_strcmp.c
+NAME = do-op
 
 HEADER = include/ft.h
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.c=.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
-
-%.o: %.c
-		cc $(CFLAGS) -c -I $(HEADER) -o src/$@ $?
+$(NAME):
+		cc $(CFLAGS) main.c -o $(NAME)
 
 clean:
-		rm -f src/*.o
+		rm -f *.o
 		
 fclean: clean
 		rm -f $(NAME)
