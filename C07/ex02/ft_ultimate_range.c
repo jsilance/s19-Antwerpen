@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:37:42 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/03 09:40:25 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/03 13:24:38 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ int	ft_ultimate_range(int **range, int min, int max)
 	int	ret;
 	int	*tab;
 
-	ret = -1;
-	*range = (void *)0;
+	*range = NULL;
 	if (max <= min)
-		return (ret * (max != min));
+		return (0);
 	i = 0;
 	ret = ft_lengh_calc(min, max);
 	tab = (int *)malloc(sizeof(int) * ret);
 	if (!tab)
 	{
-		*range = (void *)0;
+		*range = NULL;
 		return (-1);
 	}
 	while (min < max)

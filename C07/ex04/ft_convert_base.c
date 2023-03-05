@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:08:33 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/03 07:50:10 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/03 13:29:38 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	ptr[nb[1]] = '\0';
 	ft_strchr((void *)0, 0, &ptr, 1);
 	return (ptr);
+}
+#include <stdio.h>
+int main()
+{
+	char *ptr = ft_convert_base("00", "0123456789", "0123456");
+	printf("[%s]\n", ptr);
+	free(ptr);
 }
