@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:32:52 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/05 15:51:58 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:48:56 by juliensilan      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 	int			i;
 
 	i = 0;
-	ptr = malloc(sizeof(t_stock_str) * ac);
+	ptr = malloc(sizeof(t_stock_str) * (ac + 1));
 	if (!ptr)
 		return (NULL);
 	if (ac > 0 && av)
@@ -61,7 +61,7 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 			ptr[i++].size = ft_strlen(*av);
 			av++;
 		}
-		ptr[i - 1].str = 0;
+		ptr[i].str = 0;
 	}
 	return (ptr);
 }
