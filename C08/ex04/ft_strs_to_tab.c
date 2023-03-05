@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strs_to_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juliensilance <juliensilance@student.42    +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 18:32:52 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/04 22:31:43 by juliensilan      ###   ########.fr       */
+/*   Updated: 2023/03/05 15:51:58 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-typedef struct	s_stock_str
-{
-	int		size;
-	char	*str;
-	char	*copy;
-}				t_stock_str;
+#include "ft_stock_str.h"
 
 int	ft_strlen(char *str)
 {
@@ -47,13 +41,13 @@ char	*ft_strdup(char *str)
 	return (newstr);
 }
 
-struct s_stock_str *ft_strs_to_tab(int ac, char **av)
+struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
 	t_stock_str	*ptr;
 	int			i;
 
 	i = 0;
-	ptr	= malloc(sizeof(t_stock_str) * ac);
+	ptr = malloc(sizeof(t_stock_str) * ac);
 	if (!ptr)
 		return (NULL);
 	if (ac > 0 && av)

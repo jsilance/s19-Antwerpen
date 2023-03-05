@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:23:38 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/03 10:39:19 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:32:39 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define TRUE 1
 # define FALSE 0
 
-# define EVEN(var) (var % 2)
+# define EVEN(var) (var % 2 == 0)
 
 typedef int	t_bool;
 
