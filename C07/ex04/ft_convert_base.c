@@ -6,11 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:08:33 by jusilanc          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/03/03 13:29:38 by jusilanc         ###   ########.fr       */
-=======
-/*   Updated: 2023/03/04 12:18:19 by juliensilan      ###   ########.fr       */
->>>>>>> 3a60c6a90e41227febd86ad930ff73f80c4cc554
+/*   Updated: 2023/03/05 16:39:24 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +78,9 @@ int	ft_atoi_base(char *str, char *base)
 	nb = 0;
 	base_len[1] = 0;
 	base_len[0] = ft_strlen(base);
-	while ((*str >= 9 && *str <= 13) || *str == 32)
+	while (str && (*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	while (*str == '-' || *str == '+')
+	while (str && (*str == '-' || *str == '+'))
 		if (*str++ == '-')
 			base_len[1]++;
 	while (str && *str)
@@ -104,7 +100,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	long long	nb[3];
 	char		*ptr;
 
-	if (ft_chek_char(base_to) || ft_chek_char(base_from) || !nbr || !*nbr)
+	if (ft_chek_char(base_to) || ft_chek_char(base_from) || !nbr)
 		return (malloc(0));
 	nb[1] = 0;
 	nb[0] = ft_atoi_base(nbr, base_from);
@@ -114,7 +110,7 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		nb[2] = 1;
 	if (nb[0] < 0)
 		nb[0] = -nb[0];
-	else if (nb[0] == 0)
+	else if (nb[0] == 0 || !*nbr)
 		ptr[nb[1]++] = base_to[0];
 	while (nb[0])
 	{
@@ -126,11 +122,4 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	ptr[nb[1]] = '\0';
 	ft_strchr((void *)0, 0, &ptr, 1);
 	return (ptr);
-}
-#include <stdio.h>
-int main()
-{
-	char *ptr = ft_convert_base("00", "0123456789", "0123456");
-	printf("[%s]\n", ptr);
-	free(ptr);
 }
