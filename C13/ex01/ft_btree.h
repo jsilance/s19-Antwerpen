@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_btree.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/05 22:55:14 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 14:57:26 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#ifndef FT_BTREE_H
+# define FT_BTREE_H
 
-int	ft_list_size(t_list *begin_list)
+#include <stdlib.h>
+
+typedef struct s_btree
 {
-	int	i;
+	struct s_btree *left;
+	struct s_btree *right;
+	void *item;
+}				t_btree;
 
-	i = 0;
-	while (begin_list)
-	{
-		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
-}
+#endif

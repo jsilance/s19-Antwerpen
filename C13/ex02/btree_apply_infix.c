@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   btree_apply_infix.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 18:05:28 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 18:06:57 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_btree.h"
 
-int	ft_list_size(t_list *begin_list)
+void btree_apply_infix(t_btree *root, void (*applyf)(void *))
 {
-	int	i;
-
-	i = 0;
-	while (begin_list)
-	{
-		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
+	if (root->left)
+		btree_apply_infix(root->left, applyf);
+	if (root->item)
+		applyf(root->item);
+	if (root->right)
+		btree_apply_infix(root->right, applyf);
 }

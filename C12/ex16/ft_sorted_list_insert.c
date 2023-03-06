@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_sorted_list_insert.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 12:46:49 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 13:18:59 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-int	ft_list_size(t_list *begin_list)
+void	ft_sorted_list_insert(t_list **begin_list, void *data, int (*cmp)())
 {
-	int	i;
+	t_list	*ptr;
+	t_list	*new_ptr;
 
-	i = 0;
-	while (begin_list)
+	ptr = *begin_list;
+	new_ptr = 0;
+	while (ptr)
 	{
-		begin_list = begin_list->next;
-		i++;
+		if (cpm(ptr->data, data) < 0)
+		{
+			if (cmp(ptr->next->data, data) > 0)
+			{
+				new_ptr = ft_create_elem(data);
+				new_ptr->next = ptr->next;
+				ptr->next = new_ptr;
+			}
+		}
+		ptr = ptr->next;
 	}
-	return (i);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   btree_create_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 14:47:29 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 15:00:39 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_btree.h"
 
-int	ft_list_size(t_list *begin_list)
+t_btree	*btree_create_node(void *item)
 {
-	int	i;
+	t_btree	*ptr;
 
-	i = 0;
-	while (begin_list)
-	{
-		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
+	ptr = malloc(sizeof(t_btree));
+	ptr->item = item;
+	ptr->left = 0;
+	ptr->right = 0;
+	return (ptr);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   btree_apply_prefix.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 15:17:33 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 18:01:27 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_btree.h"
 
-int	ft_list_size(t_list *begin_list)
+void	btree_apply_prefix(t_btree *root, void (*applyf)(void *))
 {
-	int	i;
-
-	i = 0;
-	while (begin_list)
-	{
-		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
+	if (root->item)
+		applyf(root->item);
+	if (root->left)
+		btree_apply_prefix(root->left, applyf);
+	if (root->right)
+		btree_apply_prefix(root->right, applyf);
 }

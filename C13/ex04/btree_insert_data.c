@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   btree_insert_data.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 18:59:56 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 19:42:30 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_btree.h"
 
-int	ft_list_size(t_list *begin_list)
+void	btree_insert_data(t_btree **root, void *item, int (*cmpf)(void *, void *))
 {
-	int	i;
+	t_btree	*ptr;
 
-	i = 0;
-	while (begin_list)
+	ptr = *root;
+	while (ptr)
 	{
-		begin_list = begin_list->next;
-		i++;
+		if (cmp(ptr->item, item) <= 0)
+		{
+			if (ptr->left)
+				ptr = ptr->left;
+			else
+				ptr->left = 
+		}
+		else
+			ptr = ptr->right;
 	}
-	return (i);
 }

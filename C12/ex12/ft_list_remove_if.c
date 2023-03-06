@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_list_remove_if.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 09:28:39 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 09:32:43 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-int	ft_list_size(t_list *begin_list)
+void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *))
 {
-	int	i;
+	t_list	*ptr;
 
-	i = 0;
-	while (begin_list)
+	ptr = *begin_list;
+	while (ptr)
 	{
-		begin_list = begin_list->next;
-		i++;
+		if (!cmp(ptr->data, data_ref))
+		{
+			free_fct(ptr->data);
+			ptr->data = 0;
+		}
+		ptr = ptr->next;
 	}
-	return (i);
 }

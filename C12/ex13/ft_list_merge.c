@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_list_merge.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 00:13:19 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 11:05:12 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/06 09:34:25 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/06 09:37:37 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-int	ft_list_size(t_list *begin_list)
+t_list	*ft_list_last(t_list *begin_list)
 {
-	int	i;
-
-	i = 0;
-	while (begin_list)
-	{
+	while (begin_list && begin_list->next)
 		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
+	return (begin_list);
+}
+
+void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+{
+	ft_list_last(*begin_list1)->next = begin_list2;
 }
