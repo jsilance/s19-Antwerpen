@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/07 19:50:59 by jusilanc         ###   ########.fr        #
+#    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
+#    Updated: 2023/03/07 19:56:28 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = ft_display_file
 
 SRC = ft_putchar.c, ft_swap.c, ft_putstr.c, ft_strlen.c, ft_strcmp.c
 
