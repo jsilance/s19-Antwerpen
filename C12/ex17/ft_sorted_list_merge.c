@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 13:48:20 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 14:33:35 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:56:55 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_sorted_list_insert(t_list **begin_list, t_list *elem, int (*cmp)())
 	}
 }
 
-void	ft_sorted_list_merge(t_list **begin_list1, t_list *begin_list2, int (*cmp)())
+void	ft_sorted_list_merge(t_list **begin_list1,
+			t_list *begin_list2, int (*cmp)())
 {
 	t_list	*ptr;
 

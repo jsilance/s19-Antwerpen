@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_any.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 21:33:53 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/05 21:42:24 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:48:19 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_any(char **tab, int(*f)(char*))
+int	ft_any(char **tab, int ( *f)(char*))
 {
 	int	i;
 

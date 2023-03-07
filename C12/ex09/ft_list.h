@@ -6,14 +6,14 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:55:14 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 08:57:19 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 12:00:06 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIST_H
 # define FT_LIST_H
 
-typedef	struct s_list t_list;
+typedef struct s_list	t_list;
 
 struct		s_list
 {

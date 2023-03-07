@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:01:28 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/05 22:35:46 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:41:19 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int	ft_atoi(char *str)
 		return (nb);
 	return (-nb);
 }
-
-#include <unistd.h>
 
 void	ft_putchar(char c)
 {

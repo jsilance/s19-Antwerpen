@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
+#    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/05 20:22:15 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/07 13:26:40 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HEADER = include/ft.h
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(OBJECTS:.c=.o)
 
 all: $(NAME)
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJ)
 		ranlib $(NAME)
 
 %.o: %.c
-		cc $(CFLAGS) -c -I $(HEADER) -o src/$@ $?
+		cc $(CFLAGS) -c -I $(HEADER) -o $@ $?
 
 clean:
 		rm -f src/*.o
