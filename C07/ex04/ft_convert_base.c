@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 12:08:33 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/05 16:39:24 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:21:41 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	ft_atoi_base(char *str, char *base)
 	nb = 0;
 	base_len[1] = 0;
 	base_len[0] = ft_strlen(base);
-	while (str && (*str >= 9 && *str <= 13) || *str == 32)
+	while (str && ((*str >= 9 && *str <= 13) || *str == 32))
 		str++;
 	while (str && (*str == '-' || *str == '+'))
 		if (*str++ == '-')

@@ -6,14 +6,14 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 10:22:35 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/07 13:46:02 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:01:17 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_stock_str.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 

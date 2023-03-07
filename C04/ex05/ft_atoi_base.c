@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:26:26 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/01 14:47:33 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/07 19:03:40 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,3 +80,4 @@ int	ft_atoi_base(char *str, char *base)
 		return (-nb);
 	return (nb);
 }
+//ne fonctionne pas avec une base binaire
