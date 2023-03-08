@@ -6,12 +6,13 @@
 /*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 11:02:19 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:36:49 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <fcnt.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
@@ -37,24 +38,23 @@ int	ft_error(int argc)
 int main(int argc, char **argv)
 {
 	int		fd;
-	int		i;
 	char	buffer[32];
 	int		eof;
 
-	i = 1;
 	fd = -1;
-	oef = 1;
-	if (argc == 1)
+	eof = 31;
+	if (argc != 2)
 		return (ft_error(argc));
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		return (ft_error(fd))
-	while (eof > 0)
+		return (ft_error(fd));
+	while (eof > 0 && eof == 31)
 	{
-		oef = read(fd, buffer, sizeof(buffer));
+		eof = read(fd, buffer, 31);
+		buffer[eof] = '\0';
 		write(1, buffer, ft_strlen(buffer));
 	}
-	if (oef < 0)
+	if (eof < 0)
 		return (ft_error(eof));
 	close(fd);
 	return (0);
