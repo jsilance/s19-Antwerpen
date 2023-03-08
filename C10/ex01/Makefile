@@ -3,18 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
+#    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/08 11:50:40 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/08 13:42:28 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_cat
 
 SRC = srcs/main.c
-
-OBJ = ${SRCS:.c=.o}
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -34,4 +32,6 @@ clean:
 fclean: clean
 		rm -f ${NAME}
 
-.PHONY: clean all fclean
+re: fclean all
+
+.PHONY: clean re all fclean

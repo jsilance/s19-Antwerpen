@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 11:49:59 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:20:36 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
+#include <string.h>
+#include <errno.h>
 
 int	ft_strlen(char *str)
 {
@@ -23,15 +25,10 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	ft_error(int argc)
+int	ft_error(void)
 {
-	if (argc < 0)
-		write(2, "Cannot read file.\n", 18);
-	else if (argc == 1)
-		write(2, "File name missing.\n", 19);
-	else if (argc > 2)
-		write(2, "Too many arguments.\n", 20);
-	return (1);
+	write(2, strerror(errno), ft_strlen(strerror(errno)));
+	return (errno);
 }
 
 int main(int argc, char **argv)
@@ -45,20 +42,20 @@ int main(int argc, char **argv)
 	eof = 31;
 	i = 0;
 	if (argc < 2)
-		return (ft_error(argc));
+	 	return (ft_error());
 	while (++i < argc)
 	{
 		fd = open(argv[i], O_RDONLY);
 		if (fd < 0)
-			return (ft_error(fd));
-		while (eof > 0 && eof == 31)
+			return (ft_error());
+		while (fd > 0 && eof > 0 && eof == 31)
 		{
 			eof = read(fd, buffer, 31);
 			buffer[eof] = '\0';
 			write(1, buffer, ft_strlen(buffer));
 		}
 		if (eof < 0)
-			return (ft_error(eof));
+			return (ft_error());
 		close(fd);
 	}
 	return (0);

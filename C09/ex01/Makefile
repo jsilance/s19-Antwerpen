@@ -3,22 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
+#    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/07 19:50:59 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/08 14:55:13 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_putchar.c, ft_swap.c, ft_putstr.c, ft_strlen.c, ft_strcmp.c
-
-OBJ = $(addprefix srcs/, ${SRCS:.c=.o})
+SRC = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = $(OBJECTS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
@@ -27,7 +25,7 @@ $(NAME): $(OBJ)
 		ranlib $(NAME)
 
 %.o: %.c
-		cc $(CFLAGS) -c -I includes/ft.h -o $@ $^
+		cc $(CFLAGS) -c -I includes/ft.h -o $@ $?
 
 clean:
 		rm -f $(OBJ)
