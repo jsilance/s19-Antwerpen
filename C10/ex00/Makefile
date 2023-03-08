@@ -6,13 +6,13 @@
 #    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/07 19:56:28 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/08 11:05:07 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_display_file
 
-SRC = ft_putchar.c, ft_swap.c, ft_putstr.c, ft_strlen.c, ft_strcmp.c
+SRC = main.c
 
 OBJ = $(addprefix srcs/, ${SRCS:.c=.o})
 
@@ -23,11 +23,10 @@ OBJ = $(OBJECTS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-		ranlib $(NAME)
+		cc $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c
-		cc $(CFLAGS) -c -I includes/ft.h -o $@ $^
+		cc $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 		rm -f $(OBJ)
