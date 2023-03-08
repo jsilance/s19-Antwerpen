@@ -6,7 +6,7 @@
 #    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/08 11:24:26 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/08 11:40:26 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,4 @@ clean:
 fclean: clean
 		rm -f ${NAME}
 
-re: fclean all
-
-.PHONY: clean all re fclean
+.PHONY: clean all fclean

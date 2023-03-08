@@ -6,13 +6,12 @@
 /*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 11:36:49 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:47:04 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
