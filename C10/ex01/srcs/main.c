@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 13:20:36 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/08 19:02:04 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,27 @@ int	ft_error(void)
 	return (errno);
 }
 
-int main(int argc, char **argv)
+void	ft_read_write(int *fd, int *eof)
+{
+	char	buffer[32];
+
+	if (*fd == 0)
+		while (read(0, buffer, 1))
+			write(1, buffer, 1);
+	else
+	{
+		while (*fd > 0 && *eof > 0 && *eof == 31)
+		{
+			*eof = read(*fd, buffer, 31);
+			buffer[*eof] = '\0';
+			write(1, buffer, *eof);
+		}
+	}
+}
+
+int	main(int argc, char **argv)
 {
 	int		fd;
-	char	buffer[32];
 	int		i;
 	int		eof;
 
@@ -42,18 +59,17 @@ int main(int argc, char **argv)
 	eof = 31;
 	i = 0;
 	if (argc < 2)
-	 	return (ft_error());
+	{
+		++fd;
+		ft_read_write(&fd, &eof);
+		return (0);
+	}
 	while (++i < argc)
 	{
 		fd = open(argv[i], O_RDONLY);
 		if (fd < 0)
 			return (ft_error());
-		while (fd > 0 && eof > 0 && eof == 31)
-		{
-			eof = read(fd, buffer, 31);
-			buffer[eof] = '\0';
-			write(1, buffer, ft_strlen(buffer));
-		}
+		ft_read_write(&fd, &eof);
 		if (eof < 0)
 			return (ft_error());
 		close(fd);

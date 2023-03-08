@@ -5,27 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/08 18:24:26 by jusilanc         ###   ########.fr        #
+#    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
+#    Updated: 2023/03/08 19:04:27 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = ft_tail
 
-SRC = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+SRC = srcs/main.c
 
 CFLAGS = -Wall -Wextra -Werror
 
-OBJ = = ${SRC:.c=.o}
-
-all: ${NAME}
-
-${NAME}: ${OBJ}
-		ar rc ${NAME} ${OBJ}
-		ranlib ${NAME}
+OBJ = ${SRC:.c=.o}
 
 %.o: %.c
-		cc ${CFLAGS} -c -I includes/ft.h $< -o ${<:.c=.o}
+		cc ${CFLAGS} -c -o $@ $?
+
+${NAME}: ${OBJ}
+		# cc ${CFLAGS} -fsanitize=ad/dress ${OBJ} -o ${NAME}
+		cc ${CFLAGS} ${OBJ} -o ${NAME}
+		
+all: ${NAME}
 
 clean:
 		rm -f ${OBJ}
@@ -33,4 +33,6 @@ clean:
 fclean: clean
 		rm -f ${NAME}
 
-.PHONY: clean all fclean
+re: fclean all
+
+.PHONY: clean re all fclean
