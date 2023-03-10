@@ -6,7 +6,7 @@
 #    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/08 18:24:26 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/10 18:53:26 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ ${NAME}: ${OBJ}
 		ranlib ${NAME}
 
 %.o: %.c
-		cc ${CFLAGS} -c -I includes/ft.h $< -o ${<:.c=.o}
+		cc ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
 
 clean:
 		rm -f ${OBJ}
