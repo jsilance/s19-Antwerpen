@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.s19.be>         +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:37:30 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/10 03:09:45 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/10 13:38:41 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,12 @@ int	main(int argc, char **argv)
 		var.ret = read(var.fd, var.ptr, var.offset);
 		var.ptr[var.ret] = '\0';
 		var.prev_ptr = ft_strstock(var.ptr, var.prev_ptr);
+		if (!var.prev_ptr)
+			return (1);
 	}
+	ft_printer(var.prev_ptr, var.offset);
 	close(var.fd);
 	free(var.ptr);
-	ft_printer(var.prev_ptr, var.offset);
 	free(var.prev_ptr);
 	return (0);
 }
