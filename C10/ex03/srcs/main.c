@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tail.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 01:36:04 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 17:51:11 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/13 18:59:04 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/13 19:03:38 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TAIL_H
-# define FT_TAIL_H
+#include "../includes/ft_hexdump.h"
 
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <errno.h>
-# include <string.h>
-
-typedef struct s_taylor
+int	main(int ac, char **ag)
 {
-	int		offset;
-	int		fd;
-	int		ret;
-	char	*ptr;
-	char	*prev_ptr;
-}				t_taylor;
-
-void	ft_putstr(char *str, int len);
-int		ft_strlen(char *str);
-int		ft_atoi(char *str);
-int		ft_strcmp(char *s1, char *s2);
-
-#endif
+	(void)ac;
+	(void)ag;
+}

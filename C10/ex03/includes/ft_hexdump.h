@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tail.h                                          :+:      :+:    :+:   */
+/*   ft_hexdump.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 01:36:04 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 17:51:11 by jusilanc         ###   ########.fr       */
+/*   Created: 2023/03/13 18:57:57 by jusilanc          #+#    #+#             */
+/*   Updated: 2023/03/13 18:58:53 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TAIL_H
-# define FT_TAIL_H
+#ifndef FT_HEXDUMP_H
+# define FT_HEXDUMP_H
 
 # include <fcntl.h>
 # include <stdlib.h>
@@ -19,18 +19,6 @@
 # include <errno.h>
 # include <string.h>
 
-typedef struct s_taylor
-{
-	int		offset;
-	int		fd;
-	int		ret;
-	char	*ptr;
-	char	*prev_ptr;
-}				t_taylor;
 
-void	ft_putstr(char *str, int len);
-int		ft_strlen(char *str);
-int		ft_atoi(char *str);
-int		ft_strcmp(char *s1, char *s2);
 
 #endif

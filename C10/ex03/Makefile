@@ -6,11 +6,11 @@
 #    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/13 18:16:16 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/13 18:34:13 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_tail
+NAME = ft_hexdump
 
 SRC = srcs/main.c srcs/ft_tools.c
 
@@ -22,7 +22,7 @@ OBJ = ${SRC:.c=.o}
 		cc ${CFLAGS} -g -c -o $@ $?
 
 ${NAME}: ${OBJ}
-		cc ${CFLAGS} -g -I includes/ft_tail.h ${OBJ} -o ${NAME}
+		cc ${CFLAGS} -g -I includes/ft_hexdump.h ${OBJ} -o ${NAME}
 		
 all: ${NAME}
 

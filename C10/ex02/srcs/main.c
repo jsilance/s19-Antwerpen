@@ -6,18 +6,13 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:37:30 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/10 13:38:41 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:50:27 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
 #include "../includes/ft_tail.h"
 
-
-char	*ft_strstock(char *str, char *ptr)
+static char	*ft_strstock(char *str, char *ptr)
 {
 	int		strlen;
 	int		ptrlen;
@@ -37,39 +32,50 @@ char	*ft_strstock(char *str, char *ptr)
 	while (str && str[++j])
 		newptr[i + j - 1] = str[j];
 	newptr[i + j] = '\0';
-	free(ptr); //probleme ici
-	// ft_putstr("ok\n");
+	free(ptr);
 	return (newptr);
 }
 
-void	ft_printer(char *ptr, int offset)
+static void	ft_printer(char *ptr, int offset)
 {
 	if (ft_strlen(ptr) < offset)
-		ft_putstr(ptr);
+		ft_putstr(ptr, ft_strlen(ptr));
 	else
-		ft_putstr(&ptr[ft_strlen(ptr) - offset]);
+		ft_putstr(&ptr[ft_strlen(ptr) - (offset + 1)],
+			ft_strlen(ptr) - (ft_strlen(ptr) - (offset + 1)));
+}
+
+static int	ft_error(int error)
+{
+	write(2, strerror(error), ft_strlen(strerror(error)));
+	return (1);
+}
+
+static void	ft_taylor_init(t_taylor *var, char **argv)
+{
+	var->prev_ptr = (void *)0;
+	var->ret = 1;
+	var->offset = ft_atoi(argv[2]);
+	var->fd = open(argv[3], O_RDONLY);
 }
 
 int	main(int argc, char **argv)
 {
 	t_taylor	var;
 
-	if (argc != 4)
-	{
-		// return l'error en fonction
-		return (1);	
-	}
-	if (ft_strcmp(argv[1], "-c"))
+	if (argc != 4 || ft_strcmp(argv[1], "-c"))
 		return (1);
-	var.offset = ft_atoi(argv[2]);
-	var.ret = 1;
-	var.fd = open(argv[3], O_RDONLY);
+	ft_taylor_init(&var, argv);
+	if (var.fd < 0)
+		return (ft_error(errno));
 	var.ptr = malloc(sizeof(char) * (var.offset + 1));
 	if (!var.ptr)
 		return (1);
-	while (var.ret)
+	while (var.ret > 0)
 	{
 		var.ret = read(var.fd, var.ptr, var.offset);
+		if (var.ret < 0)
+			return (ft_error(errno));
 		var.ptr[var.ret] = '\0';
 		var.prev_ptr = ft_strstock(var.ptr, var.prev_ptr);
 		if (!var.prev_ptr)

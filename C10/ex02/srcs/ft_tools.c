@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tools.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@student.s19.be>         +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 01:51:06 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/10 01:51:45 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:04:05 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	ft_atoi(char *str)
 		return (nb);
 	return (-nb);
 }
+
 int	ft_strlen(char *str)
 {
 	int	i;
@@ -67,8 +68,8 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, int len)
 {
-	while (str && *str)
+	while (str && *str && --len)
 		write(1, str++, 1);
 }

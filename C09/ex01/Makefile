@@ -6,17 +6,21 @@
 #    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/05 11:37:48 by juliensilan       #+#    #+#              #
-#    Updated: 2023/03/10 18:53:26 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/13 17:07:06 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = srcs/ft_putchar.c srcs/ft_swap.c srcs/ft_putstr.c srcs/ft_strlen.c srcs/ft_strcmp.c
+SRC = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+
+SRCS = ${addprefix ${PRE}, ${SRC}}
+
+PRE = ./srcs/
+
+OBJ = ${SRCS:.c=.o}
 
 CFLAGS = -Wall -Wextra -Werror
-
-OBJ = = ${SRC:.c=.o}
 
 all: ${NAME}
 
@@ -25,7 +29,7 @@ ${NAME}: ${OBJ}
 		ranlib ${NAME}
 
 %.o: %.c
-		cc ${CFLAGS} -I includes -c $< -o ${<:.c=.o}
+		cc ${CFLAGS} -I ./includes/ -c $< -o ${<:.c=.o}
 
 clean:
 		rm -f ${OBJ}
@@ -33,4 +37,6 @@ clean:
 fclean: clean
 		rm -f ${NAME}
 
-.PHONY: clean all fclean
+re: fclean all
+
+.PHONY: clean re all fclean
