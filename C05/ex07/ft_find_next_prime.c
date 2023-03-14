@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:00:49 by juliensilan       #+#    #+#             */
-/*   Updated: 2023/03/07 15:25:52 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:57:26 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ int	ft_find_next_prime(int nb)
 	if (nb % 2 == 0)
 		nb++;
 	while (!ft_is_prime(nb))
-	{
 		nb += 2;
-		if (nb < 2)
-			return (2);
-	}
 	return (nb);
 }

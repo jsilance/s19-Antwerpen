@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_string_tab.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:37:55 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/05 22:44:05 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:09:48 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && *str++)
-		i++;
-	return (i);
-}
-
-void	ft_swap(char **a, char **b)
+static void	ft_swap(char **a, char **b)
 {
 	char	*tmp;
 
@@ -29,7 +19,7 @@ void	ft_swap(char **a, char **b)
 	*b = tmp;
 }
 
-int	ft_strcmp(char *s1, char *s2)
+static int	ft_strcmp(char *s1, char *s2)
 {
 	if (!s1 && !s2)
 		return (0);

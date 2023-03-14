@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:57:57 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 18:58:53 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:41:37 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@
 # include <errno.h>
 # include <string.h>
 
+typedef struct s_hexd
+{
+	int		offset;
+	int		fd;
+	int		ret;
+	char	*ptr;
+	char	*prev_ptr;
+	int		same;
+}				t_hexd;
 
+void	ft_putstr(char *str, int len);
+int		ft_strlen(char *str);
+int		ft_atoi(char *str);
+int		ft_strcmp(char *s1, char *s2);
+char	*ft_strdup(char *str);
+
+void	ft_putnbr_base(int nbr, char *base);
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to);
+void	ft_print_addr(int same, int ret);
 
 #endif

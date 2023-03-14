@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 11:47:04 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:41:26 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_error(int argc)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		fd;
 	char	buffer[32];
@@ -47,14 +47,8 @@ int main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (ft_error(fd));
-	while (eof > 0 && eof == 31)
-	{
-		eof = read(fd, buffer, 31);
-		buffer[eof] = '\0';
-		write(1, buffer, ft_strlen(buffer));
-	}
-	if (eof < 0)
-		return (ft_error(eof));
+	while (read(fd, buffer, 32))
+		write(1, buffer, 32);
 	close(fd);
 	return (0);
 }

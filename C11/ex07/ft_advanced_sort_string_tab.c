@@ -6,48 +6,30 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:47:27 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/07 11:45:25 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:21:01 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && *str++)
-		i++;
-	return (i);
-}
-
-void	ft_swap(char **a, char **b)
-{
-	char	*tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
 void	ft_advanced_sort_string_tab(char **tab, int ( *cmp)(char *, char *))
 {
-	int	i;
-	int	j;
-	int	size;
+	int		i;
+	int		end;
+	char	*tmp;
 
-	i = 0;
-	size = 0;
-	while (tab && tab[size])
-		size++;
-	while (i < size)
+	end = 0;
+	while (end == 0)
 	{
-		j = i + 1;
-		while (j < size)
+		end = 1;
+		i = -1;
+		while (tab[++i + 1])
 		{
-			if (cmp(tab[i], tab[j]) > 0)
-				ft_swap(&tab[i], &tab[j]);
-			j++;
+			if (cmp(tab[i], tab[i + 1]) > 0)
+			{
+				end = 0;
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
+			}
 		}
-		i++;
 	}
 }

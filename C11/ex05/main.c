@@ -6,13 +6,13 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 22:01:28 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/07 11:41:19 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:31:34 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_atoi(char *str)
+static int	ft_atoi(char *str)
 {
 	int			i;
 	long long	nb;
@@ -38,12 +38,12 @@ int	ft_atoi(char *str)
 	return (-nb);
 }
 
-void	ft_putchar(char c)
+static void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putnbr(int nbr)
+static void	ft_putnbr(int nbr)
 {
 	long long	nb;
 
@@ -62,7 +62,7 @@ void	ft_putnbr(int nbr)
 		ft_putchar('0' + nb);
 }
 
-void	ft_div_mod(char c, int nb1, int nb2)
+static void	ft_div_mod(char c, int nb1, int nb2)
 {
 	if (c == '/')
 	{

@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/08 19:02:04 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:20:50 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	main(int argc, char **argv)
 		if (fd < 0)
 			return (ft_error());
 		ft_read_write(&fd, &eof);
-		if (eof < 0)
+		if (eof < 0 && i + 1 == argc)
 			return (ft_error());
 		close(fd);
 	}
