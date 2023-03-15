@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:37:30 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 17:50:27 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:28:02 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,30 @@ static char	*ft_strstock(char *str, char *ptr)
 
 	strlen = ft_strlen(str);
 	ptrlen = ft_strlen(ptr);
-	i = -1;
-	j = -1;
+	i = 0;
+	j = 0;
 	newptr = malloc(sizeof(char) * (strlen + ptrlen + 1));
 	if (!newptr)
-		return (0);
-	while (ptr && ptr[++i])
+		return ((void *)0);
+	while (ptr && ptr[i])
+	{
 		newptr[i] = ptr[i];
-	while (str && str[++j])
-		newptr[i + j - 1] = str[j];
-	newptr[i + j] = '\0';
+		i++;
+	}
 	free(ptr);
+	while (str && str[j])
+		newptr[i++] = str[j++];
+	newptr[i] = '\0';
 	return (newptr);
 }
 
 static void	ft_printer(char *ptr, int offset)
 {
-	if (ft_strlen(ptr) < offset)
-		ft_putstr(ptr, ft_strlen(ptr));
+	(void)offset;
+	if (ft_strlen(ptr) <= offset)
+		ft_putstr(ptr);
 	else
-		ft_putstr(&ptr[ft_strlen(ptr) - (offset + 1)],
-			ft_strlen(ptr) - (ft_strlen(ptr) - (offset + 1)));
+		ft_putstr(&ptr[ft_strlen(ptr) - offset]);
 }
 
 static int	ft_error(int error)
@@ -68,12 +71,12 @@ int	main(int argc, char **argv)
 	ft_taylor_init(&var, argv);
 	if (var.fd < 0)
 		return (ft_error(errno));
-	var.ptr = malloc(sizeof(char) * (var.offset + 1));
+	var.ptr = malloc(sizeof(char) * (var.offset * 2 + 1));
 	if (!var.ptr)
 		return (1);
 	while (var.ret > 0)
 	{
-		var.ret = read(var.fd, var.ptr, var.offset);
+		var.ret = read(var.fd, var.ptr, var.offset * 2);
 		if (var.ret < 0)
 			return (ft_error(errno));
 		var.ptr[var.ret] = '\0';

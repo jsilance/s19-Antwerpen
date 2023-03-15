@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 12:03:23 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/14 17:41:02 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:47:41 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_print_addr(int same, int ret)
 	int			j;
 	int			len;
 
-	j = 6;
+	j = 7;
 	len = i;
 	while (len / 16 > 0)
 	{
@@ -80,10 +80,4 @@ void	ft_print_addr(int same, int ret)
 	if (same == 0)
 		ft_putnbr_base(i, "0123456789abcdef");
 	i += ret;
-}
-
-void	ft_putstr(char *str, int len)
-{
-	while (str && *str && --len)
-		write(1, str++, 1);
 }

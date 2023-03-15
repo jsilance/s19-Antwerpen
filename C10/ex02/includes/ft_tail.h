@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 01:36:04 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 17:51:11 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:14:58 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_taylor
 	char	*prev_ptr;
 }				t_taylor;
 
-void	ft_putstr(char *str, int len);
+void	ft_putstr(char *str);
 int		ft_strlen(char *str);
 int		ft_atoi(char *str);
 int		ft_strcmp(char *s1, char *s2);

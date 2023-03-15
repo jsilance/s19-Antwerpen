@@ -6,13 +6,13 @@
 #    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/14 16:11:00 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/15 18:41:35 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_hexdump
 
-SRC = srcs/main.c srcs/ft_tools.c srcs/ft_putnbr_base.c srcs/ft_convert_base.c
+SRC = srcs/main.c srcs/ft_tools.c srcs/ft_putnbr_base.c	srcs/ft_tools2.c
 
 CFLAGS = -Wall -Wextra -Werror
 

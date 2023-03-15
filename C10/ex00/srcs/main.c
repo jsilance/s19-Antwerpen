@@ -6,22 +6,12 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/14 19:41:26 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 13:26:18 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <fcntl.h>
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str && str[i])
-		i++;
-	return (i);
-}
 
 int	ft_error(int argc)
 {
@@ -49,6 +39,7 @@ int	main(int argc, char **argv)
 		return (ft_error(fd));
 	while (read(fd, buffer, 32))
 		write(1, buffer, 32);
+	write(1, "\n", 1);
 	close(fd);
 	return (0);
 }

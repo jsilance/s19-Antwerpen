@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 01:51:06 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/13 13:04:05 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 16:14:39 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-void	ft_putstr(char *str, int len)
+void	ft_putstr(char *str)
 {
-	while (str && *str && --len)
+	while (str && *str)
 		write(1, str++, 1);
 }

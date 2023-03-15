@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:59:04 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/14 17:45:29 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:37:44 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,14 @@
 
 static void	ft_printer(char *ptr)
 {
-	while (ptr && *ptr)
-	{
-		write(1, "  ", 2);
-		if (*ptr == '\n')
-			write(1, "\\n", 2);
-		else if (*ptr == '\r')
-			write(1, "\\r", 2);
-		else if (*ptr == '\t')
-			write(1, "\\t", 2);
-		else
-		{
-			write(1, " ", 1);
-			write(1, ptr, 1);
-		}
-		ptr++;
-	}
+	int		isvoid;
+	char	*cpy;
+
+	isvoid = 0;
+	cpy = ptr;
+	if (ptr && *ptr)
+		isvoid = hex_chars_printer(ptr, 0, 0);
+	chars_printer(cpy, isvoid);
 	write(1, "\n", 1);
 }
 
@@ -48,7 +40,7 @@ static void	ft_hexd_init(t_hexd *var, char **argv)
 	var->same = 0;
 }
 
-void	main_comparator(t_hexd *var)
+static void	main_comparator(t_hexd *var)
 {
 	if (ft_strcmp(var->ptr, var->prev_ptr))
 	{
@@ -70,7 +62,7 @@ int	main(int argc, char **argv)
 {
 	t_hexd	var;
 
-	if (argc != 3 || ft_strcmp(argv[1], "-c"))
+	if (argc != 3 || ft_strcmp(argv[1], "-C"))
 		return (1);
 	ft_hexd_init(&var, argv);
 	if (var.fd < 0)

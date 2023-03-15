@@ -6,11 +6,11 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:16:28 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/14 15:48:57 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:48:22 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../includes/ft_hexdump.h"
 
 static void	ft_putchar(char c)
 {
@@ -44,16 +44,6 @@ static int	ft_chek_char(char *str)
 			if (ft_strchr(&str[++j], str[i++]))
 				return (1);
 	return (0);
-}
-
-static long long	ft_strlen(char *str)
-{
-	long long	i;
-
-	i = 0;
-	while (str && *str++)
-		i++;
-	return (i);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
