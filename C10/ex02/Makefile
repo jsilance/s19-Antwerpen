@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+         #
+#    By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 19:53:30 by jusilanc          #+#    #+#              #
-#    Updated: 2023/03/15 17:27:20 by jusilanc         ###   ########.fr        #
+#    Updated: 2023/03/15 20:39:29 by jusilanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJ = ${SRC:.c=.o}
 		cc ${CFLAGS} -g -c -o $@ $?
 
 ${NAME}: ${OBJ}
-		cc ${CFLAGS} -g -fsanitize=address -I includes/ft_tail.h ${OBJ} -o ${NAME}
+		cc ${CFLAGS} -g -I includes/ft_tail.h ${OBJ} -o ${NAME}
 		
 all: ${NAME}
 
