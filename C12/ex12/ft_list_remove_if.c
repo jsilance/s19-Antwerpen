@@ -6,13 +6,16 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 09:28:39 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 09:32:43 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:23:58 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *))
+//faut enlever tout le chainon et non seulement la data
+
+void	ft_list_remove_if(t_list **begin_list,
+				void *data_ref, int (*cmp)(), void (*free_fct)(void *))
 {
 	t_list	*ptr;
 

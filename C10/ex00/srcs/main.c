@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:32:17 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/15 20:49:52 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:12:44 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (ft_error(fd));
-	while (read(fd, &buffer, 1))
+	while (read(fd, &buffer, 1) > 0)
 		write(1, &buffer, 1);
-	write(1, "\n", 1);
 	close(fd);
 	return (0);
 }

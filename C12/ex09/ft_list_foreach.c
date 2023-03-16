@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:57:41 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/07 11:59:38 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:17:19 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_list_foreach(t_list *begin_list, void ( *f)(void *))
 {
-	while (begin_list)
+	while (begin_list && f)
 	{
 		f(begin_list->data);
 		begin_list = begin_list->next;

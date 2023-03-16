@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 19:37:30 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/15 17:28:02 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:35:10 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,24 @@ static int	ft_error(int error)
 	return (1);
 }
 
-static void	ft_taylor_init(t_taylor *var, char **argv)
+static void	ft_taylor_init(t_taylor *var, char **argv, int argc)
 {
 	var->prev_ptr = (void *)0;
 	var->ret = 1;
 	var->offset = ft_atoi(argv[2]);
-	var->fd = open(argv[3], O_RDONLY);
+	if (argc == 4)
+		var->fd = open(argv[3], O_RDONLY);
+	else
+		var->fd = 0;
 }
 
 int	main(int argc, char **argv)
 {
 	t_taylor	var;
 
-	if (argc != 4 || ft_strcmp(argv[1], "-c"))
+	if (argc < 3 || argc > 4 || ft_strcmp(argv[1], "-c"))
 		return (1);
-	ft_taylor_init(&var, argv);
+	ft_taylor_init(&var, argv, argc);
 	if (var.fd < 0)
 		return (ft_error(errno));
 	var.ptr = malloc(sizeof(char) * (var.offset * 2 + 1));

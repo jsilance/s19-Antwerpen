@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jusilanc <jusilanc@s19.be>                 +#+  +:+       +#+        */
+/*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:59:04 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/15 20:44:59 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 15:10:46 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,5 @@ int	main(int argc, char **argv)
 	close(var.fd);
 	free(var.ptr);
 	free(var.prev_ptr);
-	write(1, "\n", 1);
 	return (0);
 }

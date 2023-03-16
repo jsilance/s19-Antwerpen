@@ -6,7 +6,7 @@
 /*   By: jusilanc <jusilanc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 00:34:16 by jusilanc          #+#    #+#             */
-/*   Updated: 2023/03/06 08:54:14 by jusilanc         ###   ########.fr       */
+/*   Updated: 2023/03/16 13:57:23 by jusilanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ t_list *ft_list_push_strs(int size, char **strs)
 
 	list = 0;
 	while (strs && *strs && --size >= 0)
-	{
-		ft_list_push_front(list, *strs);
-		strs++;
-	}
+		ft_list_push_front(list, *strs++);
 	return (list);
 }
